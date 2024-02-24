@@ -1,0 +1,5 @@
+Half-plane: Let S be half-plane, L be boundary. Consider A, B ∈ S and C is a point between A, B. If C ∉ S then C lies on the another side of half-plane. Thus AC intersect L with point T and A, C, T are colinear. We know that ACB is colinear, thus ATB is colinear by betweenness principle. This implies that A B are on opposite sides of plane, not both in set S, which is a contradiction. 
+
+Intersection for numbers of convex sets: A∩B, where A and B are any two convex sets. Let a,c be points in A∩B. Then, the segment ab⊆A and ab⊆B⇒ab⊆A∩B.
+
+Interior of an Angle: Angle is the intersection of two half-plane, thus ...

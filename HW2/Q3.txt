@@ -1,0 +1,7 @@
+For line L to be entirely within the interior of triangle ABC, every point on L must lie within the bounded region defined by the sides of ABC, not touching or crossing these sides.
+
+Assume the line L is completely contained in the interior of a triangle ABC.
+
+Since a line extends infinitely in both directions and triangle is a closed shape, it must intersect at least two sides of the triangle ABC. 
+
+But if L intersect with two sides of the triangle ABC, there are at least two points on L that are not in the interior of triangle ABC but rather on its boundary. This contradicts the assumption that line L is completely contained within the interior of triangle ABC, as having points on the boundary means the line is not entirely in the interior.

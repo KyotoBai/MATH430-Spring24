@@ -1,0 +1,258 @@
+\documentclass[letter,12pt]{article}
+
+\usepackage{amssymb}%*
+\usepackage{amsthm}
+\usepackage{amsfonts}%*
+\usepackage[latin2]{inputenc}%*
+\usepackage{amsmath}%*
+\usepackage{anysize}%*
+\usepackage{hyperref}
+\usepackage{bbm}
+\usepackage{float}
+\usepackage{graphicx}
+%\usepackage{titlesec}
+%\titleformat{\section}
+%  {\normalfont\large\bfseries}
+%  {\thesection}{1em}{}
+%\titleformat{\subsection}
+%  {\normalfont\bfseries}
+%  {\thesubsection}{1em}{}
+\marginsize{2.6cm}{2.6cm}{1cm}{2cm}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{main_theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+
+\newtheorem{hint}[main_theorem]{Hint}
+\newtheorem*{hint*}{Hint}
+
+\newtheorem{problem}[main_theorem]{Problem}
+\newtheorem{extraproblem}[main_theorem]{Extra Proplem}
+
+\newtheorem{main_lemma}[main_theorem]{Lemma}
+\newtheorem{main_corollary}[main_theorem]{Corollary}
+\newtheorem{main_remark}[main_theorem]{Remark}
+
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newcommand{\answerspacetop}{
+	\begin{center}
+		\textbf{BEGIN YOUR ANSWER BELOW THIS LINE} \\ \hrulefill
+	\end{center}
+}
+
+\title{MATH430 Spring 2024 Homework 3 \vspace{0.1in}\\  \normalsize{Due Feb 20} \vspace{-0.3in}}
+\date{\small{Please write-up your solutions to problems in an organized fashion. Write each problem on a separate sheet. Argue each step of your solution. Every problem is worth 10 points. Partial credit is possible if clear progress is made towards solving the problem. Collaboration is encouraged, but assignment needs to be submitted individually.
+If collaborating, please write the names of the people with whom you collaborated next to each solution to help the grader. If a solution is typed in Latex you get 20\% extra credit. Following the provided hints is optional.}}
+\begin{document}
+\maketitle
+
+
+
+\begin{problem} Let $u,v \in \Bbb R^2$ and $T_u:\Bbb R^2 \to \Bbb R^2$, $T_{v}:\Bbb R^2 \to \Bbb R^2$ for $u,v \in \Bbb R^2$ be the transformations that represent translation by $u$ and $v$ respectively. Prove that the composition of $T_u$ and $T_v$ is the translation $T_{u+v}:\Bbb R^2 \to \Bbb R^2$. Conclude from here that in general an isometry of the plane can not be written as a composition of at most three translations.
+\end{problem}
+\answerspacetop
+Given $u = (u_1, u_2)$ and $v = (v_1, v_2)$ in $\Bbb R^2$, the transformations $T_u$ and $T_v$ act on any point $x = (x_1, x_2) \in \Bbb R^2$:\\
+- $T_u(x) = x + u = (x_1 + u_1, x_2 + u_2)$\\
+- $T_v(x) = x + v = (x_1 + v_1, x_2 + v_2)$\\
+
+$T_u \circ T_v$ is
+$$T_u(T_v(x)) = T_u(x + v) = (x_1 + v_1, x_2 + v_2) + u = (x_1 + v_1 + u_1, x_2 + v_2 + u_2)$$
+$$= (x_1 + u_1 + v_1, x_2 + u_2 + v_2) = x + (u_1 + v_1, u_2 + v_2) = x + (u + v)$$
+
+This shows that the $T_u \circ T_v$ is equivalent to a single translation by the vector $u + v$. Therefore, we have proven that the composition of $T_u$ and $T_v$ is the translation $T_{u+v}$.\\
+
+An isometry of the plane preserves distances between points. It include translations, rotations, reflections, and glide reflections. A translation moves all points in the plane a fixed distance in a given direction. A rotation or a reflection cannot be achieved by a composition of translations because rotations involve a change in direction relative to the center of rotation, and reflections involve inversion through a line, all which couldn't be achieved through translation. Also, translations composed together will still result in a translation thus cannot achieve the effects of rotation or reflection.\\
+
+Hence, we could conclude that in general an isometry of the plane can not be written as a composition of at most three translations.
+\pagebreak
+
+\begin{problem} Given angles $\alpha,\beta \in [0,2\pi)$, prove that the composition of the rotations $R_{\alpha}:\Bbb R^2 \to \Bbb R^2$ and $R_{\beta}:\Bbb R^2 \to \Bbb R^2$ is the rotation $R_{\alpha+\beta}:\Bbb R^2 \to \Bbb R^2$. Conclude from here that in general an isometry of the plane can not be written as a composition of at most three rotations.
+\end{problem}
+
+\textit{Hint} To carry out the proof you will need to use formula \begin{equation}R_\theta(x,y)=(\cos(\theta)x -\sin(\theta)y,\sin(\theta)x +\cos(\theta)y ).
+\end{equation}
+Use trig identities whenever possible to make your life easier.
+
+\answerspacetop
+First, do rotation $R_\alpha$ applied to a point $(x,y)$ in $\Bbb R^2$:
+$$R_\alpha(x,y) = (\cos(\alpha)x - \sin(\alpha)y, \sin(\alpha)x + \cos(\alpha)y).$$
+
+Then, apply $R_\beta$ to the result of $R_\alpha(x,y)$:
+$$R_\beta(R_\alpha(x,y)) = R_\beta(\cos(\alpha)x - \sin(\alpha)y, \sin(\alpha)x + \cos(\alpha)y).$$
+
+Substituting into the rotation formula for $R_\beta$, we get:
+\begin{align*}
+	R_\beta(R_\alpha(x,y)) = \big(&\cos(\beta)(\cos(\alpha)x - \sin(\alpha)y) \\
+	&- \sin(\beta)(\sin(\alpha)x + \cos(\alpha)y), \\
+	&\sin(\beta)(\cos(\alpha)x - \sin(\alpha)y) \\
+	&+ \cos(\beta)(\sin(\alpha)x + \cos(\alpha)y)\big).
+\end{align*}
+
+Simplifying using trigonometric identities, we obtain:
+\begin{align*}
+	R_\beta(R_\alpha(x,y)) = \big(&(\cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta))x \\
+	&- (\cos(\alpha)\sin(\beta) + \sin(\alpha)\cos(\beta))y, \\
+	&(\sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta))x \\
+	&+ (\cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta))y\big).
+\end{align*}
+
+Simplify, we get:
+$$R_\beta(R_\alpha(x,y)) = (\cos(\alpha + \beta)x - \sin(\alpha + \beta)y, \sin(\alpha + \beta)x + \cos(\alpha + \beta)y).$$
+
+Thus $R_\beta(R_\alpha(x,y)) = R_{\alpha+\beta}(x,y),$ proving that the composition of the rotations $R_{\alpha}$ and $R_{\beta}$ is indeed the rotation $R_{\alpha+\beta}$.\\
+
+To conclude that an isometry of the plane cannot be written as a composition of at most three rotations, we need to consider the nature of isometries and rotations. Translations and glide reflections cannot be achieved through a composition of rotations alone, as rotations preserve the origin while translations and glide reflections move points without preserving the origin.\\
+
+To achieve a translation through rotations, one would need at least more than three rotations, which contradicts the statement. Therefore, it is not possible to express every isometry of the plane as a composition of at most three rotations, especially considering that some isometries.
+\pagebreak
+
+
+\begin{problem}  Suppose $a,b,c,d$ are vectors in $\Bbb R^2$ such that $abcd$ is a parallelogram with $g$ being the vector at the intersection of the diagonals. Show that $g$ is the centroid of $a,b,c,d$:
+$$\frac{a+b+c+d}{4}=g.$$
+\end{problem}
+\textit{Hint} You may use results about parallelograms proved/mentioned in past assignments.
+
+\answerspacetop
+Let the vectors $a, b, c,$ and $d$ represent the vertices of the parallelogram. We can arrange these vectors in a way that $a$ and $b$, $b$ and $c$, $c$ and $d$, $d$ and $a$ are consecutive pairs of vertices.\\
+
+The diagonals of the parallelogram connect $a$ to $c$ and $b$ to $d$. Since $g$ is the intersection of the diagonals, by the midpoint formula, $g$ can be represented as the average of the endpoints of either diagonal. \\
+
+Thus
+$g = \frac{a + c}{2}$ and $g = \frac{b + d}{2}$.\\
+
+Since $g$ must satisfy both conditions simultaneously, we have $g = \frac{a + c}{2} = \frac{b + d}{2}.$\\
+
+If we add these two together:
+$$
+2g = \frac{a + c}{2} + \frac{b + d}{2} = \frac{(a + b + c + d)}{2}.
+$$
+
+Dividing both sides by 2 to solve for $g$, we get
+$$
+g = \frac{a + b + c + d}{4}.
+$$
+This completes the proof.
+\pagebreak
+
+
+\begin{problem}  Suppose $(V,+,\cdot)$ is a vector space and the vectors $a,b,c \in V$ form a triangle, that is none of the vectors $a-b,a-c,b-c$ are parallel to the others. If there exists numbers $\alpha,\beta,\gamma \in \Bbb R$ such that $\alpha + \beta + \gamma =0$ and $\alpha a+ \beta b+ \gamma c=0,$ then prove that $\alpha=\beta=\gamma=0$.
+\end{problem}
+
+\answerspacetop
+
+$$\alpha a + \beta b + \gamma c = 0$$ 
+$$\alpha a + \beta b = -\gamma c$$
+
+Given $\alpha + \beta + \gamma = 0$, we can express $\gamma$ as $$\gamma = -(\alpha + \beta)$$.
+
+Substituting this into the equation, we get:
+$$\alpha a + \beta b = (\alpha + \beta) c$$
+$$\alpha (a - c) + \beta (b - c) = 0$$
+
+Given that $a, b, \text{ and } c$ form a triangle, implying $a - c, b - c, \text{ and } a - b$ are not parallel, and thus $a - c$ and $b - c$ are linearly independent. Therefore, the only way this equation holds true is if the coefficients of these linearly independent vectors are zero, implying: $\alpha = 0, \beta = 0$.\\
+
+And from the original equation $\alpha + \beta + \gamma = 0$, $\gamma = 0$\\
+
+Thus, we have proven that $$\alpha = \beta = \gamma = 0$$ is the only solution. 
+\pagebreak
+
+
+\begin{problem} Suppose $(V,+,\cdot,\langle\cdot,\cdot\rangle)$ is an inner product space. We have shown in class that one can introduce a distance on this space using the formula
+$$d(a,b)=\sqrt{\langle b-a,b-a \rangle}, \ a,b \in V.$$
+Given $u,v,w \in V$ show that $w$ is equidistant from $u$ and $v$ if and only if
+$$\langle u,u \rangle - 2\langle w,u \rangle=\langle v,v \rangle - 2\langle w,v \rangle.$$
+\end{problem}
+
+\answerspacetop
+
+For $w$ to be equidistant from $u$ and $v$, the distances $d(w,u)$ and $d(w,v)$ must be equal. So $d(w,u) = d(w,v).$\\
+
+Substituting the definition of $d(a,b)$ into this equation, we have
+$$
+\sqrt{\langle u-w, u-w \rangle} = \sqrt{\langle v-w, v-w \rangle}.
+$$
+$$
+\langle u-w, u-w \rangle = \langle v-w, v-w \rangle.
+$$
+
+Expanding both sides using the properties of the inner product, we get
+$$
+\langle u,u \rangle - 2\langle u,w \rangle + \langle w,w \rangle = \langle v,v \rangle - 2\langle v,w \rangle + \langle w,w \rangle.
+$$
+$$
+\langle u,u \rangle - 2\langle u,w \rangle = \langle v,v \rangle - 2\langle v,w \rangle.
+$$
+
+Because $\langle w,u \rangle = \langle u,w \rangle$ and $\langle w,v \rangle = \langle v,w \rangle$. 
+$$
+\langle u,u \rangle - 2\langle w,u \rangle = \langle v,v \rangle - 2\langle w,v \rangle
+$$
+
+Hence, we have shown that $w$ is equidistant from $u$ and $v$ if and only if $\langle u,u \rangle - 2\langle w,u \rangle = \langle v,v \rangle - 2\langle w,v \rangle$.
+\pagebreak
+
+\begin{problem} We have seen that $C[0,1]$ (the space of continuous functions on the unit interval)  is an inner product space, hence it has a rich geometry in which one can make sense of distances and angles.
+
+Given continuous functions $f(x)=x+1,g(x)=x^2-x,h(x)=x-1$, compute the distance of $f$ from $g$ and the cosine of the angle $\widehat{fgh}$.
+\end{problem}
+
+\answerspacetop
+The distance between two functions $f$ and $g$ in this space is defined using the inner product
+$$
+\langle f, g \rangle = \int_0^1 f(x)g(x) \, dx.
+$$
+The norm is
+$$
+\|f\| = \sqrt{\langle f, f \rangle}.
+$$
+The distance between $f$ and $g$ is
+$$
+\text{distance}(f, g) = \|f - g\|.
+$$
+
+Given functions are, $f(x) = x + 1$, $g(x) = x^2 - x$, $h(x) = x - 1$.
+
+The distance between $f$ and $g$ is 
+$$
+\text{distance}(f, g) = \|f - g\| = \sqrt{\int_0^1 (f(x) - g(x))^2 dx} = \frac{\sqrt{645}}{15}.
+$$
+
+The cosine of the angle $\widehat{fgh}$ is calculated by:
+$$
+\cos(\theta) = \frac{\langle f-g, h-g \rangle}{\|f-g\|\|h-g\|} = \frac{\int_0^1 (f(x) - g(x))(h(x) - g(x)) dx}{\sqrt{\int_0^1 (f(x) - g(x))^2 dx} \cdot \sqrt{\int_0^1 (h(x) - g(x))^2 dx}}.
+$$
+cosine of the angle is approximately $-0.616$.
+
+\pagebreak
+
+\begin{extraproblem} Prove that isometries of the plane can not be written as a composition of a finite number of translations and rotations.
+\end{extraproblem}
+\textit{Hint} Try to argue that it is not possible to write reflection in the x-axis as composition of a finite number of translations and rotations. 
+
+\answerspacetop
+
+We can note the following properties for translation and rotation:
+\begin{itemize}
+	\item Translations do not alter the orientation of any figure. 
+	\item Rotations about a point also preserve the orientation of figures. Whether the rotation is clockwise or counterclockwise, the relative orientation of points within the figure remains the same.
+\end{itemize}
+
+A reflection in the x-axis does change the orientation of figures, it cannot be achieved through any finite composition of translations and rotations.\\
+
+The determinant of the transformation matrices associated with translations and rotations is positive, indicating preservation of orientation. In contrast, the determinant of the transformation matrix for a reflection is negative, indicating a change in orientation. \\
+
+Since the composition of transformations corresponds to the multiplication of their matrices, and since multiplying matrices with positive determinants always results in a matrix with a positive determinant, it is impossible to achieve a matrix with a negative determinant.\\
+
+Therefore, we conclude that isometries of the plane, specifically reflections, cannot be written as a composition of a finite number of translations and rotations.
+\pagebreak
+
+\end{document} 
+
+
+
