@@ -1,0 +1,174 @@
+\documentclass[letter,12pt]{article}
+\usepackage{yhmath}
+
+\usepackage{amssymb}%*
+\usepackage{amsthm}
+\usepackage{amsfonts}%*
+\usepackage[latin2]{inputenc}%*
+\usepackage{amsmath}%*
+\usepackage{anysize}%*
+\usepackage{hyperref}
+\usepackage{bbm}
+\usepackage{arcs}
+\usepackage{float}
+\usepackage{graphicx}
+%\usepackage{titlesec}
+%\titleformat{\section}
+%  {\normalfont\large\bfseries}
+%  {\thesection}{1em}{}
+%\titleformat{\subsection}
+%  {\normalfont\bfseries}
+%  {\thesubsection}{1em}{}
+\marginsize{2.6cm}{2.6cm}{1cm}{2cm}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{main_theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+
+\newtheorem{hint}[main_theorem]{Hint}
+\newtheorem*{hint*}{Hint}
+
+\newtheorem{problem}[main_theorem]{Problem}
+\newtheorem{extraproblem}[main_theorem]{Extra Proplem}
+
+\newtheorem{main_lemma}[main_theorem]{Lemma}
+\newtheorem{main_corollary}[main_theorem]{Corollary}
+\newtheorem{main_remark}[main_theorem]{Remark}
+
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newcommand{\answerspacetop}{
+	\begin{center}
+		\textbf{BEGIN YOUR ANSWER BELOW THIS LINE} \\ \hrulefill
+	\end{center}
+}
+
+\title{MATH430 Spring 2024 Homework 4\\ \normalsize{Due Feb 26}}
+\date{\small{Please write-up your solutions to problems in an organized fashion. Write each problem on a
+separate sheet. Argue each step of your solution. Every problem is worth 10 points. Partial
+credit is possible if clear progress is made towards solving the problem. Collaboration is
+encouraged, but assignment needs to be submitted \textbf{individually}. If collaborating, please write
+the names of the people with whom you collaborated next to each solution to help the grader.
+If a solution is typed in Latex you get 20\% extra credit. Following the provided hints is
+optional.
+}}
+\begin{document}
+\maketitle
+
+\begin{problem}Suppose $\triangle ABC$ is a triangle on the unit sphere $\mathbb{S}(0, 1)$. Suppose $D \in  \wideparen {[BC]}$. If the sum of the angles in $\triangle ABD$ is $181^\circ$ and the sum of the angles in $\triangle ACD$ is $182^\circ$, what is the sum of the angles in $\triangle ABC$?
+\end{problem}
+
+\answerspacetop
+To find the sum of the angles in $\triangle ABC$ given the sums of the angles in $\triangle ABD$ and $\triangle ACD$, let's analyze the given information and apply the concept of spherical excess. On the unit sphere $\mathbb{S}(0, 1)$, the sum of the angles in a spherical triangle exceeds $180^\circ$ by an amount proportional to the triangle's area, known as the spherical excess.
+
+Given:
+- The sum of the angles in $\triangle ABD = 181^\circ$
+- The sum of the angles in $\triangle ACD = 182^\circ$
+
+In spherical geometry, the sum of the angles of a triangle is greater than $180^\circ$. This excess is directly related to the area of the triangle on the sphere's surface.
+
+The formula for the sum of the angles $\theta$ in a spherical triangle is:
+$$
+\theta = A + B + C - 180^\circ
+$$
+where $A$, $B$, and $C$ are the angles of the triangle, and the excess over $180^\circ$ represents the spherical excess, which is proportional to the triangle's area.
+
+Given that $\triangle ABD$ and $\triangle ACD$ share the side $AD$ and have angle sums of $181^\circ$ and $182^\circ$ respectively, we can find the sum of the angles in $\triangle ABC$ by considering the relationship between these triangles and the concept of spherical excess.
+
+Since $\triangle ABC = \triangle ABD + \triangle ACD - \angle ADC$, and knowing that in a spherical triangle, the excess is due to the area on the sphere's surface, we can conclude that the sum of angles in $\triangle ABC$ is the addition of the sums in $\triangle ABD$ and $\triangle ACD$, minus $360^\circ$ (since we've counted the angle at $D$ twice, once in each of the given angle sums, and we need to subtract $180^\circ$ for the baseline sum of angles in a planar triangle).
+
+Therefore, the sum of the angles in $\triangle ABC$ is:
+$$
+181^\circ + 182^\circ - 360^\circ = 363^\circ - 360^\circ = 3^\circ
+$$
+
+Adding this to the base $180^\circ$ for a triangle, we get:
+$$
+180^\circ + 3^\circ = 183^\circ
+$$
+
+Thus, the sum of the angles in $\triangle ABC$ is $183^\circ$. This result reflects the spherical excess principle, indicating that the angles of a triangle on a sphere exceed the sum of angles in a plane triangle due to the curvature of the sphere.
+\pagebreak
+
+\begin{problem}A spherical rectangle is a quadrilateral $ABCD$ on the unit sphere $\mathbb{S}(0, 1)$ with all four angles measuring $90^\circ$. Do spherical rectangles exist? Argue your answer.
+\end{problem}
+\answerspacetop
+To analyze the existence of spherical rectangles, let's first define the key concepts and then explore the geometric implications on the surface of a sphere, specifically on the unit sphere $\mathbb{S}(0, 1)$.
+
+A \textbf{spherical rectangle} is defined as a quadrilateral $ABCD$ on the surface of a sphere such that all four of its angles are right angles ($90^\circ$). This definition implies that we are working within the realm of spherical geometry, which differs from Euclidean geometry in several key aspects, notably in how angles and distances are measured.
+
+In Euclidean geometry, a rectangle is defined similarly by its right angles but exists on a flat, two-dimensional surface. The existence of a rectangle in Euclidean space is straightforward, given the parallel postulate and the properties of Euclidean space that allow for the existence of parallel lines and equidistant points.
+
+However, in spherical geometry:
+\begin{itemize}
+	\item The concept of parallel lines as known in Euclidean geometry does not exist. Great circles (the largest possible circles on the sphere's surface) always intersect at two points, implying that what serves as "straight lines" on a sphere (geodesics) cannot remain equidistant along their entire length.
+	\item The sum of the angles of a quadrilateral on the surface of a sphere is greater than $360^\circ$, unlike in Euclidean geometry where it is exactly $360^\circ$. This is due to the curvature of the sphere which adds extra angle sum based on the area of the quadrilateral.
+\end{itemize}
+
+Given these properties, let's consider the implications for a spherical rectangle:
+\begin{itemize}
+	\item For $ABCD$ to be a spherical rectangle with all angles being $90^\circ$, it would need to be contained on the surface of the sphere.
+	\item The definition implies that each corner angle of $ABCD$ bends outward, away from the interior of the quadrilateral, due to the spherical surface's curvature. This bending increases the sum of the interior angles beyond the Euclidean total of $360^\circ$ for a quadrilateral.
+	\item Specifically, for a quadrilateral on a sphere, the sum of the angles is $360^\circ + \text{area of the quadrilateral in steradians}$. Since a spherical rectangle would occupy a nonzero area on the sphere, its angle sum must exceed $360^\circ$, contradicting the initial assertion that all four angles are $90^\circ$, summing to exactly $360^\circ$.
+\end{itemize}
+
+Therefore, while the concept of a "spherical rectangle" as a quadrilateral with all angles measuring exactly $90^\circ$ is intriguing, it cannot exist on the surface of a sphere due to the inherent properties of spherical geometry that contradict the necessary conditions for a Euclidean rectangle. The curvature of the sphere ensures that the sum of the angles of any quadrilateral will be greater than $360^\circ$, making it impossible for a quadrilateral with four right angles (which would sum to exactly $360^\circ$ in Euclidean terms) to exist on a sphere.
+\pagebreak
+
+\begin{problem} \textbf{(Length of altitude in a right triangle).} Suppose $\triangle ABC$ is a triangle on the unit sphere $\mathbb{S}(0, 1)$ with side lengths $a$, $b$, $c$, and $m(\angle BAC) = 90^\circ$. Suppose $H \in \wideparen{[BC]}$ such that $\wideparen{[AH]}$ is an altitude. Derive a formula for the length of $\wideparen{[AH]}$ in terms of $a$, $b$, $c$.
+\end{problem}
+\textit{Hint:} How would you do this if you where in the plane and not on the sphere? You
+would probably use some trig identities. Try to imitate this idea on the sphere.
+
+\answerspacetop
+First, we try to get AH in a plane, not sphere:\\
+
+In the plane, because $BC$ and $AC$ are right angle sides:
+$$ AH = \frac{BC \cdot AC}{AB} $$
+or using the trigonometric identity:
+$$ AH = AB \cdot \sin(C) $$
+where $AB$ is the hypotenuse, $BC$ is the base, $AC$ is the height, and $C$ is the angle at $C$.
+
+On the sphere, we don't have the Pythagorean theorem directly, but we can use the spherical Pythagorean theorem for a right-angled triangle, which says that in a right spherical triangle with hypotenuse $c$ and legs $a$ and $b$, the following relation holds:
+$$ \cos(c) = \cos(a) \cdot \cos(b) $$
+This is equivalent to the Pythagorean theorem in plane geometry for a right triangle.
+
+For the altitude $AH$ on the sphere, we need to find its spherical length. We can consider the triangle $AHC$ where $AC$ is $b$, $AH$ is the altitude we want to find, and $HC$ is part of the side opposite the right angle, which we'll call $d$. We can apply the spherical law of sines, which states:
+$$ \frac{\sin(a)}{\sin(A)} = \frac{\sin(b)}{\sin(B)} = \frac{\sin(c)}{\sin(C)} $$
+Given that $\angle BAC = 90^\circ$, $\sin(BAC) = \sin(90^\circ) = 1$, and since $AH$ is an altitude, it also creates two right angles at $H$, meaning $\angle AHC = 90^\circ$ and $\angle AHB = 90^\circ$. 
+
+The altitude $AH$ divides $\triangle ABC$ into two right-angled triangles, $AHC$ and $AHB$. We can apply the spherical Pythagorean theorem to these triangles:
+$$ \cos(AH) = \cos(AC) \cdot \cos(HC) $$
+$$ \cos(AH) = \cos(AB) \cdot \cos(HB) $$
+Since $\angle AHC$ and $\angle AHB$ are both $90^\circ$, we have $HC = c - d$ and $HB = d$, where $d$ is the spherical length of $HB$ and $c - d$ is the spherical length of $HC$. 
+
+We need to express $d$ in terms of $a$, $b$, and $c$, but to do this, we need more information or to apply the relationships from the spherical identities provided earlier. Let's try to use the identities from Theorem 6 to solve for $AH$:
+$$ \sin(\angle AHB) = \frac{\sin(b)}{\sin(c)} $$
+$$ \sin(\angle AHC) = \frac{\sin(a)}{\sin(c)} $$
+
+Since $AH$ is an altitude, it is perpendicular to $BC$, and thus we also have:
+$$ \sin(\angle AHB) = \cos(HB) $$
+$$ \sin(\angle AHC) = \cos(HC) $$
+
+Substituting the values of $HB$ and $HC$ in terms of $d$ and $c - d$, we can find expressions for $\cos(HB)$ and $\cos(HC)$ in terms of $a$, $b$, and $c$, and use these to solve for $AH$. However, this problem requires careful application of spherical trigonometry principles, which can be complex. The precise calculation would likely involve iterative methods or numerical approximation, as the exact analytical solution might not be straightforward to express in simple terms.
+
+\pagebreak
+
+\begin{problem}\textbf{ (Mid-line of a triangle).} Suppose $\triangle ABC$ is a triangle on the unit sphere $\mathbb{S}(0, 1)$ with side lengths $a$, $b$, $c$. Suppose $M \in \wideparen{[AB]}$ and $N \in \wideparen{[AC]}$ such that $\wideparen{|AM|} = \wideparen{|MB|}$ and $\wideparen{|AN|} = \wideparen|NC|$. Derive a formula for the length of $\wideparen{[MN]}$ in terms of the side lengths $a$, $b$, $c$.
+\end{problem}
+\textit{Hint:} For plane triangles, the length of the midline $\wideparen{MN}$ is just half the length of the corresponding base $\wideparen{BC}$. This is an instance when the proof from the plane does not go through (why?). Instead, use the spherical cosine theorem twice to obtain the desired formula for $|\wideparen{MN}|$. Don't bother simplifying the messy expression you obtain at the end.
+
+
+\begin{problem}Given a spherical triangle $\triangle ABC \in S(0, 1)$, by definition, the measure of the angles $m(\angle BAC)$, $m(\angle ABC)$, $m(\angle ACB)$ has to be less than $\pi$. Show that $$\pi < m(\angle BAC) + m(\angle ABC) + m(\angle ACB) < 3\pi.$$
+
+\end{problem}
+
+\begin{extraproblem} Suppose $\triangle ABC$ is a spherical triangle on $\mathbb{S}(0, 1)$. Prove that the angle bisectors are concurrent!
+\end{extraproblem}
+
+\end{document} 
